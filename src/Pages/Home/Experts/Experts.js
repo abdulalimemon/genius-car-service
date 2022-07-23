@@ -21,7 +21,7 @@ const experts = [
 
 const Experts = () => {
     return (
-        <div className="container my-5">
+        <div className="container my-5" id="expert">
             <h2 className="text-primary pt-1 pb-5 text-center fs-1">Our Experts</h2>
             <Row xs={2} md={3} className="g-4">
                 {
