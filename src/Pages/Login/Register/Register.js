@@ -1,8 +1,22 @@
 import React, { useRef } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+
+
+
 
 const Register = () => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const navigate = useNavigate();
+
     const nameRef = useRef('');
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -14,7 +28,11 @@ const Register = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        console.log(name, email, password);
+        createUserWithEmailAndPassword(email, password)
+    }
+
+    if (user) {
+        navigate("/home")
     }
 
     return (
@@ -47,6 +65,10 @@ const Register = () => {
                                 <Button variant="primary" type="submit" className="w-100 text-center">
                                     Register
                                 </Button>
+                                <p className="text-danger text-center py-2 fs-5">{error?.message}</p>
+                                {
+                                    loading && <p className="text-danger text-center py-2 fs-3">Loading</p>
+                                }
                             </Form>
                             <p className="py-3">Already have an account? <Link to="/login" className="text-decoration-none">Login Now.</Link></p>
                         </Col>
