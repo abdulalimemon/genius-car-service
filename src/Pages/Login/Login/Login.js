@@ -3,6 +3,7 @@ import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -54,12 +55,13 @@ const Login = () => {
                                 <Button variant="primary" type="submit" className="w-100 text-center">
                                     Login
                                 </Button>
-                                <p className="text-danger text-center py-2 fs-5">{error?.message}</p>
+                                <p className="text-danger text-center py-1 fs-5">{error?.message}</p>
                                 {
-                                    loading && <p className="text-danger text-center py-2 fs-3">Loading</p>
+                                    loading && <p className="text-danger text-center py-1 fs-3">Loading</p>
                                 }
                             </Form>
-                            <p className="py-3">New to Genius Car Service? <Link to="/register" className="text-decoration-none">Register Now.</Link></p>
+                            <p>New to Genius Car Service? <Link to="/register" className="text-decoration-none">Register Now.</Link></p>
+                            <SocialLogin></SocialLogin>
                         </Col>
                         <Col xs={0} lg={1} md={1}></Col>
                     </Row>
