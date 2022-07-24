@@ -1,0 +1,10 @@
+@media only screen and (max-width : 576px) {
+    .xs-height{
+        height: 450px;
+    }
+}
+@media only screen and (min-width : 557px) and (max-width : 992px) {
+    .xs-height{
+        height: 500px;
+    }
+}
