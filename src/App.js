@@ -14,6 +14,7 @@ import Checkout from './Pages/Checkout/Checkout';
 import ForgotPassword from './Pages/Login/ForgotPassword/ForgotPassword';
 import AddService from './Pages/AddService/AddService';
 import ManageServices from './Pages/ManageServices/ManageServices';
+import Sample from './Pages/Practice/Sample';
 
 
 
@@ -46,6 +47,7 @@ function App() {
           </RequireAuth>
         }></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/sample" element={<Sample></Sample>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/forgotpassword" element={<ForgotPassword></ForgotPassword>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
