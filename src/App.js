@@ -13,6 +13,7 @@ import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import Checkout from './Pages/Checkout/Checkout';
 import ForgotPassword from './Pages/Login/ForgotPassword/ForgotPassword';
 import AddService from './Pages/AddService/AddService';
+import ManageServices from './Pages/ManageServices/ManageServices';
 
 
 
@@ -37,6 +38,11 @@ function App() {
         <Route path="/addservice" element={
           <RequireAuth>
             <AddService></AddService>
+          </RequireAuth>
+        }></Route>
+        <Route path="/manageservice" element={
+          <RequireAuth>
+            <ManageServices></ManageServices>
           </RequireAuth>
         }></Route>
         <Route path="/login" element={<Login></Login>}></Route>

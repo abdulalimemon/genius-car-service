@@ -23,7 +23,13 @@ const Header = () => {
                         <Nav.Link href="home#service">Services</Nav.Link>
                         <Nav.Link href="/home#expert">Experts</Nav.Link>
                         <Nav.Link as={Link} to="/about">About</Nav.Link>
-                        <Nav.Link as={Link} to="/addservice">Add Service</Nav.Link>
+
+                        {
+                            user && <>
+                                <Nav.Link as={Link} to="/addservice">Add Service</Nav.Link>
+                                <Nav.Link as={Link} to="/manageservice">Manage Service</Nav.Link>
+                            </>
+                        }
                         {
                             user ?
                                 <button className="py-2 px-4 btn btn-light" onClick={usersignOut}>Sign Out</button>
