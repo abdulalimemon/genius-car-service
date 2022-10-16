@@ -6,7 +6,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import Loading from '../../Shared/Loading/Loading';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
@@ -93,7 +93,6 @@ const Register = () => {
                             </Form>
                             <p>Already have an account? <Link to="/login" className="text-decoration-none">Login Now.</Link></p>
                             <SocialLogin></SocialLogin>
-                            <ToastContainer />
                         </Col>
                         <Col xs={0} lg={1} md={1}></Col>
                     </Row>

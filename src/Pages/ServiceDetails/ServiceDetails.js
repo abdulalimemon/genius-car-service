@@ -4,17 +4,11 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import useServiceDetail from '../../hooks/useServiceDetail';
 
 const ServiceDetails = () => {
     const { serviceID } = useParams();
-    const [service, setService] = useState({});
-
-    useEffect(() => {
-        const url = `http://localhost:5000/service/${serviceID}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setService(data));
-    }, [])
+    const [service] = useServiceDetail(serviceID);
     return (
         <div className="text-center my-5">
             <h2>You are about to book : {service.name}</h2>
@@ -23,7 +17,7 @@ const ServiceDetails = () => {
                 <p>Price : ${service.price}</p>
                 <img src={service.img} alt="Service" />
             </div>
-            <Link to="/checkout"><Button className="btn btn-primary my-3">Check Out</Button></Link>
+            <Link to={`/checkout/${serviceID}`}><Button className="btn btn-primary my-3">Check Out</Button></Link>
         </div>
     );
 };

@@ -3,7 +3,7 @@ import { Col, Form, Row, Button } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router';
 import { useAuthState, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -58,7 +58,6 @@ const ForgotPassword = () => {
                 </Col>
                 <Col xs={1} lg={4} md={2}></Col>
             </Row>
-            <ToastContainer />
         </div>
     );
 };
