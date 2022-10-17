@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
 import logo from '../../../images/logo.png'
 import { signOut } from '@firebase/auth';
@@ -26,9 +26,20 @@ const Header = () => {
 
                         {
                             user && <>
-                                <Nav.Link as={Link} to="/addservice">Add Service</Nav.Link>
-                                <Nav.Link as={Link} to="/manageservice">Manage Service</Nav.Link>
-                                <Nav.Link as={Link} to="/sample">Sample</Nav.Link>
+                                <NavDropdown title="Links" id="basic-nav-dropdown">
+                                    <NavDropdown.Item as={Link} to="/addservice">Add Service</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="/manageservice">
+                                        Manage Service
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="/sample">Sample</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                </NavDropdown>
+                            </>
+                        }
+
+                        {
+                            user && <>
                                 <Nav.Link as={Link} to="/Orders">Orders</Nav.Link>
                             </>
                         }
