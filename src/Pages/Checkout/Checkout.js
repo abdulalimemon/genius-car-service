@@ -22,14 +22,14 @@ const Checkout = () => {
             address: event.target.address.value,
             number: event.target.number.value
         }
-        axios.post('http://localhost:5000/order', order)
-        .then(response =>{
-            const {data} = response;
-            if(data.insertedId){
-                toast('Your order is booked!!!');
-                event.target.reset();
-            }
-        })
+        axios.post('https://genius-car-server-w5a6.onrender.com/order', order)
+            .then(response => {
+                const { data } = response;
+                if (data.insertedId) {
+                    toast('Your order is booked!!!');
+                    event.target.reset();
+                }
+            })
     }
 
 
@@ -43,7 +43,7 @@ const Checkout = () => {
                 <br />
                 <input className='w-100 my-2 p-2 rounded fs-5' type="email" placeholder='Email' name='email' value={user.email} required readOnly />
                 <br />
-                <input className='w-100 my-2 p-2 rounded fs-5' type="text" placeholder="Service Name" value={service.name} name='service' required readOnly/>
+                <input className='w-100 my-2 p-2 rounded fs-5' type="text" placeholder="Service Name" value={service.name} name='service' required readOnly />
                 <br />
                 <input className='w-100 my-2 p-2 rounded fs-5' type="text" placeholder='Address' name='address' required />
                 <br />

@@ -14,8 +14,8 @@ const Order = () => {
 
     useEffect(() => {
         const getOrders = async () => {
-            const email = user.email;
-            const url = `http://localhost:5000/order?email=${email}`;
+            const email = user?.email;
+            const url = `https://genius-car-server-w5a6.onrender.com/order?email=${email}`;
             try {
                 const { data } = await axiosPrivate.get(url);
                 setOrders(data);
@@ -29,7 +29,7 @@ const Order = () => {
             }
         }
         getOrders();
-    }, [user])
+    }, [user]);
 
     return (
         <div className='container py-5'>

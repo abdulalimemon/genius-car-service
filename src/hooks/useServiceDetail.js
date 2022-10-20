@@ -4,7 +4,7 @@ const useServiceDetail = serviceID => {
     const [service, setService] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/service/${serviceID}`;
+        const url = `https://genius-car-server-w5a6.onrender.com/service/${serviceID}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setService(data));

@@ -8,6 +8,7 @@ import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import Loading from '../../Shared/Loading/Loading';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useToken from '../../../hooks/useToken';
 
 const Register = () => {
     const [updateProfile, updating, profileError] = useUpdateProfile(auth);
@@ -16,6 +17,7 @@ const Register = () => {
         createUserWithEmailAndPassword,
         user, loading, error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [token] = useToken(user);
 
     const navigate = useNavigate();
     // const location = useLocation();
@@ -41,9 +43,8 @@ const Register = () => {
         await updateProfile({ displayName: name });
     }
 
-    if (user) {
+    if (token) {
         navigate('/');
-        console.log(user);
     }
 
     if (loading || updating) {

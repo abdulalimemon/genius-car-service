@@ -9,7 +9,7 @@ const Sample = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/sample")
+        fetch("https://genius-car-server-w5a6.onrender.com/sample")
             .then(res => res.json())
             .then(data => setInfos(data));
     }, []);
